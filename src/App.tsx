@@ -8,6 +8,7 @@ interface KeywordData {
   details: string[];
   color: string;
   gradient: string;
+  category: 'core' | 'tools' | 'platform' | 'practices' | 'devops';
   fullContent?: {
     introduction: string;
     keyPoints: string[];
@@ -19,6 +20,8 @@ interface KeywordData {
 const App: React.FC = () => {
   const [selectedKeyword, setSelectedKeyword] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'dashboard' | 'detail'>('dashboard');
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  
   const keywords: Record<string, KeywordData> = {
     cicd: {
       title: "CI/CD - Intégration et Déploiement Continus",
@@ -26,6 +29,7 @@ const App: React.FC = () => {
       icon: "🔄",
       color: "bg-blue-500",
       gradient: "from-blue-500 to-blue-600",
+      category: 'core',
       details: [
         "CI (Intégration Continue) : Fusion automatique et régulière des modifications de code",
         "CD (Déploiement Continu) : Automatisation des tests et déploiement en production",
@@ -66,6 +70,7 @@ const App: React.FC = () => {
       icon: "⚙️",
       color: "bg-purple-500",
       gradient: "from-purple-500 to-purple-600",
+      category: 'core',
       details: [
         "Étapes typiques : Build → Test → Deploy",
         "Automatisation complète du workflow",
@@ -80,6 +85,7 @@ const App: React.FC = () => {
       icon: "🌿",
       color: "bg-green-500",
       gradient: "from-green-500 to-green-600",
+      category: 'tools',
       details: [
         "Contrôle de version décentralisé du code source",
         "Git Flow : Stratégie de branches (main, develop, feature, release, hotfix)",
@@ -94,32 +100,33 @@ const App: React.FC = () => {
       icon: "🐳",
       color: "bg-cyan-500",
       gradient: "from-cyan-500 to-blue-500",
+      category: 'platform',
       details: [
         "Conteneurisation légère des applications",
         "Isolation des environnements d'exécution",
         "Portabilité : 'Build once, run anywhere'",
-        "Images Docker : snapshots réutilisables",
-        "Docker Compose : orchestration multi-conteneurs"
+        "Dockerfile pour définir l'environnement",
+        "Docker Compose pour orchestrer plusieurs conteneurs"
       ],
       fullContent: {
-        introduction: "Docker est une plateforme open-source qui permet de développer, déployer et exécuter des applications dans des conteneurs. Les conteneurs encapsulent une application avec toutes ses dépendances, garantissant qu'elle s'exécute de manière identique dans n'importe quel environnement.",
+        introduction: "Docker est une plateforme de conteneurisation qui permet d'empaqueter une application et toutes ses dépendances dans un conteneur virtuel léger. Cette technologie garantit que l'application fonctionnera de manière identique sur n'importe quel système, du développement à la production.",
         keyPoints: [
-          "Conteneurs légers vs machines virtuelles lourdes",
-          "Images Docker : templates immuables pour créer des conteneurs",
-          "Dockerfile : fichier de configuration pour construire des images",
+          "Conteneurs légers et rapides à démarrer",
+          "Isolation complète des applications",
+          "Images Docker versionnées et partageables",
+          "Dockerfile pour définir l'environnement de manière reproductible",
           "Docker Hub : registry public pour partager des images",
-          "Volumes Docker pour la persistence des données",
-          "Réseaux Docker pour la communication entre conteneurs"
+          "Compatible avec tous les systèmes d'exploitation"
         ],
         useCases: [
-          "Développement local identique à la production",
-          "Microservices avec isolation complète",
-          "Tests d'intégration dans des environnements reproductibles",
-          "Déploiement d'applications dans le cloud",
-          "CI/CD avec builds et tests dans des conteneurs"
+          "Développement local avec environnements identiques pour toute l'équipe",
+          "Microservices conteneurisés pour faciliter le déploiement",
+          "Tests d'intégration avec des dépendances isolées",
+          "Déploiement cloud avec orchestrateurs comme Kubernetes",
+          "CI/CD avec des environnements de build reproductibles"
         ],
         bestPractices: [
-          "Utiliser des images de base officielles et légères (alpine)",
+          "Utiliser des images de base officielles et légères",
           "Créer des images multi-stage pour réduire la taille",
           "Ne jamais stocker de secrets dans les images",
           "Utiliser .dockerignore pour exclure les fichiers inutiles",
@@ -134,6 +141,7 @@ const App: React.FC = () => {
       icon: "☸️",
       color: "bg-blue-600",
       gradient: "from-blue-600 to-indigo-600",
+      category: 'platform',
       details: [
         "Orchestration automatique des conteneurs",
         "Auto-scaling et auto-healing des applications",
@@ -148,6 +156,7 @@ const App: React.FC = () => {
       icon: "🔧",
       color: "bg-red-500",
       gradient: "from-red-500 to-red-600",
+      category: 'tools',
       details: [
         "Serveur CI/CD le plus populaire",
         "Extensible via des milliers de plugins",
@@ -162,6 +171,7 @@ const App: React.FC = () => {
       icon: "🐙",
       color: "bg-gray-800",
       gradient: "from-gray-700 to-gray-900",
+      category: 'platform',
       details: [
         "CI/CD natif dans GitHub",
         "Workflows définis en YAML",
@@ -176,6 +186,7 @@ const App: React.FC = () => {
       icon: "🦊",
       color: "bg-orange-500",
       gradient: "from-orange-500 to-red-500",
+      category: 'platform',
       details: [
         "CI/CD intégré dans GitLab",
         "Fichier .gitlab-ci.yml pour la configuration",
@@ -190,6 +201,7 @@ const App: React.FC = () => {
       icon: "🏗️",
       color: "bg-purple-600",
       gradient: "from-purple-600 to-pink-600",
+      category: 'devops',
       details: [
         "Provisionnement d'infrastructure déclaratif",
         "Support multi-cloud (AWS, Azure, GCP)",
@@ -204,6 +216,7 @@ const App: React.FC = () => {
       icon: "📜",
       color: "bg-red-600",
       gradient: "from-red-600 to-orange-600",
+      category: 'devops',
       details: [
         "Automatisation sans agent",
         "Playbooks YAML lisibles",
@@ -218,6 +231,7 @@ const App: React.FC = () => {
       icon: "📊",
       color: "bg-yellow-500",
       gradient: "from-yellow-500 to-orange-500",
+      category: 'devops',
       details: [
         "Prometheus : collecte de métriques",
         "Grafana : visualisation des données",
@@ -232,6 +246,7 @@ const App: React.FC = () => {
       icon: "✅",
       color: "bg-green-600",
       gradient: "from-green-600 to-emerald-600",
+      category: 'practices',
       details: [
         "Tests unitaires : vérification des fonctions isolées",
         "Tests d'intégration : interaction entre composants",
@@ -246,6 +261,7 @@ const App: React.FC = () => {
       icon: "🔒",
       color: "bg-indigo-600",
       gradient: "from-indigo-600 to-purple-600",
+      category: 'practices',
       details: [
         "Scan de vulnérabilités du code (SAST)",
         "Analyse des dépendances (SCA)",
@@ -260,6 +276,7 @@ const App: React.FC = () => {
       icon: "📦",
       color: "bg-pink-500",
       gradient: "from-pink-500 to-rose-500",
+      category: 'tools',
       details: [
         "Stockage des builds compilés",
         "Container Registry pour images Docker",
@@ -274,6 +291,7 @@ const App: React.FC = () => {
       icon: "🚀",
       color: "bg-teal-500",
       gradient: "from-teal-500 to-cyan-500",
+      category: 'practices',
       details: [
         "Blue-Green : deux environnements parallèles",
         "Canary : déploiement progressif sur un sous-ensemble",
@@ -284,6 +302,21 @@ const App: React.FC = () => {
     }
   };
 
+  // Categories configuration
+  const categories = {
+    all: { label: 'Tous les Concepts', icon: '📚', color: 'from-blue-500 to-purple-500' },
+    core: { label: 'Fondamentaux CI/CD', icon: '🔄', color: 'from-blue-500 to-blue-600' },
+    platform: { label: 'Plateformes', icon: '🐳', color: 'from-cyan-500 to-blue-500' },
+    tools: { label: 'Outils', icon: '🔧', color: 'from-green-500 to-emerald-500' },
+    practices: { label: 'Bonnes Pratiques', icon: '✨', color: 'from-teal-500 to-cyan-500' },
+    devops: { label: 'DevOps & IaC', icon: '🏗️', color: 'from-purple-600 to-pink-600' }
+  };
+
+  // Filter keywords by selected category
+  const filteredKeywords = selectedCategory === 'all' 
+    ? Object.entries(keywords)
+    : Object.entries(keywords).filter(([_, data]) => data.category === selectedCategory);
+
   const KeywordCard: React.FC<{ id: string; data: KeywordData }> = ({ id, data }) => (
     <div
       onClick={() => {
@@ -292,37 +325,53 @@ const App: React.FC = () => {
           setViewMode('detail');
         }
       }}
-      className="cursor-pointer rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 bg-white relative group"
+      className={`group cursor-pointer bg-white rounded-xl border-2 border-gray-100 hover:border-blue-200 transition-all duration-300 hover:shadow-lg ${!data.fullContent ? 'opacity-60' : ''}`}
     >
-      {/* Gradient Background on Hover */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${data.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
-      
-      <div className="relative z-10 p-6">
-        <div className="flex items-start gap-4 mb-3">
-          <div className={`text-5xl bg-gradient-to-br ${data.gradient} w-20 h-20 rounded-2xl flex items-center justify-center text-white shadow-lg transform group-hover:rotate-6 transition-transform duration-300`}>
+      <div className="p-6">
+        {/* Icon */}
+        <div className="mb-4 flex justify-center">
+          <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${data.gradient} flex items-center justify-center text-3xl shadow-lg transform group-hover:scale-110 transition-transform duration-300`}>
             {data.icon}
           </div>
-          <div className="flex-1 pt-2">
-            <h3 className="text-lg font-bold text-gray-800 mb-1 leading-tight">{data.title}</h3>
-            <p className="text-xs text-gray-500 leading-relaxed">{data.description}</p>
-          </div>
         </div>
         
-        {/* Expand Indicator */}
-        <div className="flex justify-center mt-4">
-          <div className={`w-8 h-1 rounded-full bg-gradient-to-r ${data.gradient} transform transition-all duration-300 group-hover:w-full`}></div>
-        </div>
+        {/* Title */}
+        <h3 className="text-center text-lg font-bold text-gray-800 mb-2 min-h-[56px] flex items-center justify-center">
+          {data.title}
+        </h3>
         
-        {/* Click Indicator */}
-        <div className="mt-4 text-center">
-          <span className="text-xs text-gray-400 group-hover:text-blue-600 transition-colors font-medium">
-            Cliquer pour voir les détails →
+        {/* Description */}
+        <p className="text-center text-sm text-gray-600 mb-4 min-h-[40px]">
+          {data.description}
+        </p>
+        
+        {/* Category Badge */}
+        <div className="flex justify-center mb-4">
+          <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r ${data.gradient} text-white`}>
+            {categories[data.category].icon}
+            <span>{categories[data.category].label}</span>
           </span>
         </div>
+        
+        {/* Divider */}
+        <div className="border-t border-gray-100 mb-4"></div>
+        
+        {/* Status */}
+        {data.fullContent ? (
+          <div className="text-center">
+            <span className="text-sm text-blue-600 font-medium group-hover:text-blue-700 inline-flex items-center gap-2">
+              <span>Voir les détails</span>
+              <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+            </span>
+          </div>
+        ) : (
+          <div className="text-center">
+            <span className="text-sm text-gray-400 italic">
+              Bientôt disponible
+            </span>
+          </div>
+        )}
       </div>
-      
-      {/* Bottom Accent */}
-      <div className={`h-1 bg-gradient-to-r ${data.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
     </div>
   );
 
@@ -337,132 +386,125 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="relative bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700 text-white shadow-2xl overflow-hidden">
-        {/* Animated Background Circles */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }}></div>
-        
-        <div className="container mx-auto px-6 py-16 md:py-24 relative z-10">
-          <div className="text-center space-y-6 animate-fadeIn">
-            <div className="inline-block">
-              <div className="text-7xl md:text-9xl mb-6 transform hover:scale-110 transition-transform duration-300">
-                📚
-              </div>
-            </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
-              <span className="block mb-2">Documentation CI/CD</span>
-              <span className="text-3xl md:text-5xl bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl px-8 py-4 inline-block">
-                Complète & Professionnelle
-              </span>
+      <header className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="text-6xl mb-6">📚</div>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              Documentation CI/CD
             </h1>
-            <p className="text-lg md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
-              Guide complet des concepts, outils et pratiques de l'intégration et du déploiement continus
+            <p className="text-lg md:text-xl text-blue-100 mb-6">
+              Guide complet des concepts, outils et pratiques DevOps
             </p>
-            <div className="flex flex-wrap justify-center gap-4 pt-6">
-              <div className="bg-white bg-opacity-20 backdrop-blur-sm px-6 py-3 rounded-full text-sm md:text-base font-semibold flex items-center gap-2">
-                <span>🔄</span> CI/CD
-              </div>
-              <div className="bg-white bg-opacity-20 backdrop-blur-sm px-6 py-3 rounded-full text-sm md:text-base font-semibold flex items-center gap-2">
-                <span>🐳</span> Docker
-              </div>
-              <div className="bg-white bg-opacity-20 backdrop-blur-sm px-6 py-3 rounded-full text-sm md:text-base font-semibold flex items-center gap-2">
-                <span>☸️</span> Kubernetes
-              </div>
-              <div className="bg-white bg-opacity-20 backdrop-blur-sm px-6 py-3 rounded-full text-sm md:text-base font-semibold flex items-center gap-2">
-                <span>🌿</span> Git Flow
-              </div>
+            <div className="flex flex-wrap justify-center gap-3">
+              <span className="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm font-medium">🔄 CI/CD</span>
+              <span className="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm font-medium">🐳 Docker</span>
+              <span className="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm font-medium">☸️ Kubernetes</span>
+              <span className="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm font-medium">🌿 Git Flow</span>
             </div>
           </div>
-        </div>
-        
-        {/* Wave Separator */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,58.7C960,64,1056,64,1152,58.7C1248,53,1344,43,1392,37.3L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z" fill="#f8fafc" fillOpacity="1"></path>
-          </svg>
         </div>
       </header>
 
       {/* Introduction */}
-      <section className="container mx-auto px-6 py-12 md:py-16">
-        <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 mb-12 relative overflow-hidden">
-          {/* Decorative Background */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full blur-3xl opacity-50"></div>
-          
-          <div className="relative z-10">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-8 flex flex-col md:flex-row items-center gap-4">
-              <span className="text-5xl md:text-6xl">🎯</span>
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Qu'est-ce que le CI/CD ?
-              </span>
-            </h2>
-            
-            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6">
-              <p className="text-base md:text-lg">
-                Le <strong className="text-blue-600">CI/CD</strong> (Continuous Integration / Continuous Deployment) est une méthodologie moderne 
-                qui vise à <strong className="text-purple-600">automatiser et optimiser le cycle de développement logiciel</strong>. Cette approche 
-                permet aux équipes de développement de livrer du code de qualité plus rapidement et de manière plus fiable.
+      <section className="container mx-auto px-4 md:px-6 lg:px-8 py-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                🎯 Qu'est-ce que le CI/CD ?
+              </h2>
+              <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+                Le <strong className="text-blue-600">CI/CD</strong> est une méthodologie moderne qui vise à 
+                <strong className="text-purple-600"> automatiser et optimiser le cycle de développement logiciel</strong>.
               </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Avantages */}
+              <div className="bg-blue-50 rounded-xl p-6 border-2 border-blue-100">
+                <div className="text-3xl mb-3">✨</div>
+                <h3 className="text-xl font-bold text-blue-900 mb-4">Avantages</h3>
+                <ul className="space-y-3 text-sm text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 font-bold">✓</span>
+                    <span>Détection précoce des bugs</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 font-bold">✓</span>
+                    <span>Déploiements fréquents</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 font-bold">✓</span>
+                    <span>Réduction du time-to-market</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 font-bold">✓</span>
+                    <span>Meilleure collaboration</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 font-bold">✓</span>
+                    <span>Feedback rapide</span>
+                  </li>
+                </ul>
+              </div>
               
-              <div className="grid md:grid-cols-2 gap-6 mt-8">
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 md:p-8 rounded-2xl border-2 border-blue-200 shadow-lg transform hover:scale-105 transition-all duration-300">
-                  <h3 className="text-xl md:text-2xl font-bold text-blue-900 mb-4 flex items-center gap-2">
-                    <span className="text-3xl">✨</span> Avantages
-                  </h3>
-                  <ul className="space-y-3 text-gray-700">
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-500 text-xl">✓</span>
-                      <span>Détection précoce des bugs</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-500 text-xl">✓</span>
-                      <span>Déploiements plus fréquents et fiables</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-500 text-xl">✓</span>
-                      <span>Réduction du temps de mise sur le marché</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-500 text-xl">✓</span>
-                      <span>Amélioration de la collaboration</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-500 text-xl">✓</span>
-                      <span>Feedback rapide aux développeurs</span>
-                    </li>
-                  </ul>
-                </div>
-                
-                <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 md:p-8 rounded-2xl border-2 border-purple-200 shadow-lg transform hover:scale-105 transition-all duration-300">
-                  <h3 className="text-xl md:text-2xl font-bold text-purple-900 mb-4 flex items-center gap-2">
-                    <span className="text-3xl">⚡</span> Principes Clés
-                  </h3>
-                  <ul className="space-y-3 text-gray-700">
-                    <li className="flex items-start gap-2">
-                      <span className="text-purple-500 text-xl">→</span>
-                      <span>Automatisation maximale</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-purple-500 text-xl">→</span>
-                      <span>Tests continus à chaque étape</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-purple-500 text-xl">→</span>
-                      <span>Intégration fréquente du code</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-purple-500 text-xl">→</span>
-                      <span>Déploiement rapide et sûr</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-purple-500 text-xl">→</span>
-                      <span>Monitoring et observabilité</span>
-                    </li>
-                  </ul>
-                </div>
+              {/* Principes */}
+              <div className="bg-purple-50 rounded-xl p-6 border-2 border-purple-100">
+                <div className="text-3xl mb-3">⚡</div>
+                <h3 className="text-xl font-bold text-purple-900 mb-4">Principes Clés</h3>
+                <ul className="space-y-3 text-sm text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-600 font-bold">→</span>
+                    <span>Automatisation maximale</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-600 font-bold">→</span>
+                    <span>Tests continus</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-600 font-bold">→</span>
+                    <span>Intégration fréquente</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-600 font-bold">→</span>
+                    <span>Déploiement rapide</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-600 font-bold">→</span>
+                    <span>Monitoring constant</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Workflow */}
+              <div className="bg-teal-50 rounded-xl p-6 border-2 border-teal-100">
+                <div className="text-3xl mb-3">🔄</div>
+                <h3 className="text-xl font-bold text-teal-900 mb-4">Workflow</h3>
+                <ul className="space-y-3 text-sm text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <span className="text-teal-600 font-bold">1</span>
+                    <span>Commit du code</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-teal-600 font-bold">2</span>
+                    <span>Build automatique</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-teal-600 font-bold">3</span>
+                    <span>Tests automatisés</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-teal-600 font-bold">4</span>
+                    <span>Scan de sécurité</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-teal-600 font-bold">5</span>
+                    <span>Déploiement</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -470,116 +512,77 @@ const App: React.FC = () => {
       </section>
 
       {/* Keywords Grid */}
-      <section className="container mx-auto px-6 pb-16">
-        <div className="text-center mb-12 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            🔑 Concepts et Outils Essentiels
-          </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Cliquez sur chaque carte pour découvrir les détails et approfondir vos connaissances
-          </p>
-          <div className="flex justify-center gap-2 text-sm text-gray-500">
-            <span className="px-4 py-2 bg-white rounded-full shadow-sm">15 Concepts</span>
-            <span className="px-4 py-2 bg-white rounded-full shadow-sm">100% En Français</span>
-            <span className="px-4 py-2 bg-white rounded-full shadow-sm">Guide Complet</span>
+      <section className="container mx-auto px-4 md:px-6 lg:px-8 py-12">
+        <div className="max-w-7xl mx-auto">
+          {/* Title */}
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              🔑 Concepts et Outils Essentiels
+            </h2>
+            <p className="text-gray-600 text-lg">
+              Explorez par catégorie et cliquez pour découvrir les détails
+            </p>
           </div>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {Object.entries(keywords).map(([id, data]) => (
-            <KeywordCard key={id} id={id} data={data} />
-          ))}
-        </div>
-      </section>
 
-      {/* Workflow Section */}
-      <section className="container mx-auto px-6 pb-12">
-        <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 overflow-hidden relative">
-          {/* Background Pattern */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full blur-3xl opacity-30 -z-0"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-br from-green-100 to-teal-100 rounded-full blur-3xl opacity-30 -z-0"></div>
-          
-          <h2 className="text-4xl font-extrabold text-gray-800 mb-12 flex items-center gap-4 relative z-10">
-            <span className="text-5xl">🔄</span>
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Workflow CI/CD Typique
+          {/* Category Filters */}
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {Object.entries(categories).map(([key, cat]) => (
+              <button
+                key={key}
+                onClick={() => setSelectedCategory(key)}
+                className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 flex items-center gap-2 ${
+                  selectedCategory === key
+                    ? `bg-gradient-to-r ${cat.color} text-white shadow-lg`
+                    : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-gray-300'
+                }`}
+              >
+                <span className="text-lg">{cat.icon}</span>
+                <span>{cat.label}</span>
+                {selectedCategory === key && (
+                  <span className="bg-white bg-opacity-30 rounded-full px-2 py-0.5 text-xs font-bold">
+                    {filteredKeywords.length}
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
+
+          {/* Stats */}
+          <div className="flex justify-center gap-4 mb-10 text-sm text-gray-600">
+            <span className="px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200">
+              <strong className="text-blue-600">{filteredKeywords.length}</strong> Concepts
             </span>
-          </h2>
-          
-          <div className="relative z-10">
-            {/* Timeline Line */}
-            <div className="absolute left-6 md:left-12 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-teal-500"></div>
-            
-            <div className="space-y-8 md:space-y-10">
-              {[
-                { step: "1", title: "Développement", desc: "Écriture du code et tests locaux", color: "blue", icon: "💻" },
-                { step: "2", title: "Commit & Push", desc: "Envoi du code vers le repository Git", color: "green", icon: "📤" },
-                { step: "3", title: "Build", desc: "Compilation et création des artifacts", color: "purple", icon: "🔨" },
-                { step: "4", title: "Tests", desc: "Exécution des tests automatisés", color: "yellow", icon: "✅" },
-                { step: "5", title: "Scan de Sécurité", desc: "Analyse des vulnérabilités", color: "red", icon: "🔒" },
-                { step: "6", title: "Déploiement", desc: "Mise en production automatique", color: "teal", icon: "🚀" },
-                { step: "7", title: "Monitoring", desc: "Surveillance et alertes en temps réel", color: "indigo", icon: "📊" }
-              ].map((item, index) => (
-                <div key={index} className="flex items-center gap-6 md:gap-8 group relative">
-                  {/* Step Number Circle */}
-                  <div className={`relative z-10 w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-${item.color}-400 to-${item.color}-600 text-white flex items-center justify-center text-xl md:text-2xl font-bold shadow-lg transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-300`}>
-                    {item.step}
-                  </div>
-                  
-                  {/* Content Card */}
-                  <div className="flex-1 bg-gradient-to-r from-white to-gray-50 p-5 md:p-6 rounded-2xl shadow-md group-hover:shadow-xl transform group-hover:translate-x-2 transition-all duration-300 border-l-4 border-${item.color}-500">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-3xl md:text-4xl">{item.icon}</span>
-                      <h4 className="font-bold text-gray-800 text-lg md:text-xl">{item.title}</h4>
-                    </div>
-                    <p className="text-gray-600 text-sm md:text-base ml-0 md:ml-12">{item.desc}</p>
-                  </div>
-                  
-                  {/* Connection Arrow */}
-                  {index < 6 && (
-                    <div className="absolute left-6 md:left-12 top-full w-1 h-8 md:h-10 bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
-                  )}
-                </div>
-              ))}
-            </div>
+            <span className="px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200">
+              100% Français
+            </span>
+          </div>
+
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredKeywords.map(([id, data]) => (
+              <KeywordCard key={id} id={id} data={data} />
+            ))}
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="relative bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 text-white py-12 mt-16 overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-500 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center space-y-4">
-            <div className="text-5xl mb-4">📚</div>
-            <h3 className="text-2xl md:text-3xl font-bold">Documentation CI/CD - 2025</h3>
-            <p className="text-blue-200 max-w-2xl mx-auto text-lg">
+      <footer className="bg-gray-900 text-white py-10 mt-16">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="text-4xl mb-4">📚</div>
+            <h3 className="text-2xl font-bold mb-3">Documentation CI/CD - 2025</h3>
+            <p className="text-gray-400 mb-6">
               Guide complet pour maîtriser l'intégration et le déploiement continus
             </p>
-            <div className="flex flex-wrap justify-center gap-4 pt-6">
-              <div className="flex items-center gap-2 bg-white bg-opacity-10 backdrop-blur-sm px-4 py-2 rounded-full">
-                <span>🔄</span>
-                <span className="text-sm">CI/CD</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white bg-opacity-10 backdrop-blur-sm px-4 py-2 rounded-full">
-                <span>🐳</span>
-                <span className="text-sm">Docker</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white bg-opacity-10 backdrop-blur-sm px-4 py-2 rounded-full">
-                <span>☸️</span>
-                <span className="text-sm">Kubernetes</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white bg-opacity-10 backdrop-blur-sm px-4 py-2 rounded-full">
-                <span>🔒</span>
-                <span className="text-sm">DevSecOps</span>
-              </div>
+            <div className="flex flex-wrap justify-center gap-3 mb-6">
+              <span className="px-4 py-2 bg-white bg-opacity-10 rounded-full text-sm">🔄 CI/CD</span>
+              <span className="px-4 py-2 bg-white bg-opacity-10 rounded-full text-sm">🐳 Docker</span>
+              <span className="px-4 py-2 bg-white bg-opacity-10 rounded-full text-sm">☸️ Kubernetes</span>
+              <span className="px-4 py-2 bg-white bg-opacity-10 rounded-full text-sm">🔒 DevSecOps</span>
             </div>
-            <div className="pt-8 border-t border-white border-opacity-20 mt-8">
-              <p className="text-gray-400 text-sm">
+            <div className="pt-6 border-t border-gray-700">
+              <p className="text-gray-500 text-sm">
                 Créé avec ❤️ en utilisant React, TypeScript et Tailwind CSS
               </p>
             </div>
