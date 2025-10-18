@@ -386,9 +386,9 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
       {/* Header */}
-      <header className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white overflow-hidden">
+      <header className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white overflow-hidden shadow-2xl">
         {/* Decorative Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
@@ -396,47 +396,47 @@ const App: React.FC = () => {
           <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
         </div>
 
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-24 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+        <div className="container mx-auto px-6 md:px-10 lg:px-16 xl:px-20 py-20 md:py-28 relative z-10">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
             {/* Icon with Animation */}
-            <div className="inline-block mb-6 transform hover:scale-110 transition-transform duration-300">
-              <div className="w-24 h-24 md:w-32 md:h-32 bg-white bg-opacity-20 backdrop-blur-lg rounded-3xl flex items-center justify-center shadow-2xl">
-                <span className="text-6xl md:text-7xl">📚</span>
+            <div className="inline-block mb-8 transform hover:scale-110 transition-transform duration-300">
+              <div className="w-28 h-28 md:w-36 md:h-36 bg-white bg-opacity-20 backdrop-blur-lg rounded-3xl flex items-center justify-center shadow-2xl border-2 border-white border-opacity-30">
+                <span className="text-7xl md:text-8xl">📚</span>
               </div>
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
-              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight drop-shadow-lg">
+              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-50 to-white animate-pulse">
                 Documentation CI/CD
               </span>
-              <span className="block text-2xl md:text-3xl lg:text-4xl font-semibold mt-3 text-blue-100">
+              <span className="block text-2xl md:text-3xl lg:text-4xl font-semibold mt-4 text-blue-50 drop-shadow-md">
                 Complète & Professionnelle
               </span>
             </h1>
 
             {/* Description */}
-            <p className="text-lg md:text-xl text-blue-50 mb-8 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-blue-50 mb-10 max-w-3xl mx-auto leading-relaxed font-medium drop-shadow-md">
               Guide complet des concepts, outils et pratiques DevOps pour maîtriser 
               l'intégration et le déploiement continus
             </p>
 
             {/* Tags */}
-            <div className="flex flex-wrap justify-center gap-3">
-              <span className="px-5 py-2.5 bg-white bg-opacity-20 backdrop-blur-md rounded-full text-sm font-semibold hover:bg-opacity-30 transition-all duration-300 flex items-center gap-2 shadow-lg">
-                <span className="text-xl">🔄</span>
+            <div className="flex flex-wrap justify-center gap-4">
+              <span className="px-6 py-3 bg-white bg-opacity-25 backdrop-blur-md rounded-full text-base font-bold hover:bg-opacity-35 transition-all duration-300 flex items-center gap-2.5 shadow-xl border border-white border-opacity-30 hover:scale-105 transform">
+                <span className="text-2xl">🔄</span>
                 <span>CI/CD</span>
               </span>
-              <span className="px-5 py-2.5 bg-white bg-opacity-20 backdrop-blur-md rounded-full text-sm font-semibold hover:bg-opacity-30 transition-all duration-300 flex items-center gap-2 shadow-lg">
-                <span className="text-xl">🐳</span>
+              <span className="px-6 py-3 bg-white bg-opacity-25 backdrop-blur-md rounded-full text-base font-bold hover:bg-opacity-35 transition-all duration-300 flex items-center gap-2.5 shadow-xl border border-white border-opacity-30 hover:scale-105 transform">
+                <span className="text-2xl">🐳</span>
                 <span>Docker</span>
               </span>
-              <span className="px-5 py-2.5 bg-white bg-opacity-20 backdrop-blur-md rounded-full text-sm font-semibold hover:bg-opacity-30 transition-all duration-300 flex items-center gap-2 shadow-lg">
-                <span className="text-xl">☸️</span>
+              <span className="px-6 py-3 bg-white bg-opacity-25 backdrop-blur-md rounded-full text-base font-bold hover:bg-opacity-35 transition-all duration-300 flex items-center gap-2.5 shadow-xl border border-white border-opacity-30 hover:scale-105 transform">
+                <span className="text-2xl">☸️</span>
                 <span>Kubernetes</span>
               </span>
-              <span className="px-5 py-2.5 bg-white bg-opacity-20 backdrop-blur-md rounded-full text-sm font-semibold hover:bg-opacity-30 transition-all duration-300 flex items-center gap-2 shadow-lg">
-                <span className="text-xl">🌿</span>
+              <span className="px-6 py-3 bg-white bg-opacity-25 backdrop-blur-md rounded-full text-base font-bold hover:bg-opacity-35 transition-all duration-300 flex items-center gap-2.5 shadow-xl border border-white border-opacity-30 hover:scale-105 transform">
+                <span className="text-2xl">🌿</span>
                 <span>Git Flow</span>
               </span>
             </div>
@@ -452,127 +452,127 @@ const App: React.FC = () => {
       </header>
 
       {/* Introduction */}
-      <section className="container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-20">
-        <div className="max-w-6xl mx-auto">
+      <section className="container mx-auto px-6 md:px-10 lg:px-16 xl:px-20 py-20 md:py-24">
+        <div className="max-w-5xl mx-auto">
           {/* Title Section */}
-          <div className="text-center mb-12">
-            <div className="inline-block mb-4">
-              <span className="text-5xl md:text-6xl">🎯</span>
+          <div className="text-center mb-16">
+            <div className="inline-block mb-6">
+              <span className="text-6xl md:text-7xl drop-shadow-lg">🎯</span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
-              Qu'est-ce que le <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">CI/CD</span> ?
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+              Qu'est-ce que le <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">CI/CD</span> ?
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Le <strong className="text-blue-600">CI/CD</strong> (Continuous Integration / Continuous Deployment) est une méthodologie moderne qui vise à 
-              <strong className="text-purple-600"> automatiser et optimiser le cycle de développement logiciel</strong>.
+            <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-medium">
+              Le <strong className="text-blue-700 font-extrabold">CI/CD</strong> (Continuous Integration / Continuous Deployment) est une méthodologie moderne qui vise à 
+              <strong className="text-purple-700 font-extrabold"> automatiser et optimiser le cycle de développement logiciel</strong>.
             </p>
           </div>
           
           {/* Cards Grid */}
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
             {/* Avantages Card */}
-            <div className="group relative bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border-2 border-blue-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-200 rounded-full filter blur-3xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+            <div className="group relative bg-gradient-to-br from-blue-50 via-blue-100 to-blue-50 rounded-3xl p-10 border-2 border-blue-300 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-3">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-300 rounded-full filter blur-3xl opacity-30 group-hover:opacity-60 transition-opacity"></div>
               
               <div className="relative z-10">
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                  <span className="text-3xl">✨</span>
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center mb-5 shadow-xl">
+                  <span className="text-4xl">✨</span>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-blue-900 mb-4">Avantages</h3>
+                <h3 className="text-3xl font-extrabold text-blue-900 mb-5">Avantages</h3>
                 
-                <ul className="space-y-3 text-sm text-gray-700">
+                <ul className="space-y-4 text-base text-gray-800">
                   <li className="flex items-start gap-3 group/item">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
-                    <span className="group-hover/item:text-blue-900 transition-colors">Détection précoce des bugs</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs font-bold mt-1">✓</span>
+                    <span className="group-hover/item:text-blue-900 transition-colors font-medium">Détection précoce des bugs</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
-                    <span className="group-hover/item:text-blue-900 transition-colors">Déploiements plus fréquents</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs font-bold mt-1">✓</span>
+                    <span className="group-hover/item:text-blue-900 transition-colors font-medium">Déploiements plus fréquents</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
-                    <span className="group-hover/item:text-blue-900 transition-colors">Réduction du time-to-market</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs font-bold mt-1">✓</span>
+                    <span className="group-hover/item:text-blue-900 transition-colors font-medium">Réduction du time-to-market</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
-                    <span className="group-hover/item:text-blue-900 transition-colors">Meilleure collaboration</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs font-bold mt-1">✓</span>
+                    <span className="group-hover/item:text-blue-900 transition-colors font-medium">Meilleure collaboration</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
-                    <span className="group-hover/item:text-blue-900 transition-colors">Feedback rapide et continu</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs font-bold mt-1">✓</span>
+                    <span className="group-hover/item:text-blue-900 transition-colors font-medium">Feedback rapide et continu</span>
                   </li>
                 </ul>
               </div>
             </div>
             
             {/* Principes Card */}
-            <div className="group relative bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-200 rounded-full filter blur-3xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+            <div className="group relative bg-gradient-to-br from-purple-50 via-purple-100 to-purple-50 rounded-3xl p-10 border-2 border-purple-300 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-3">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-300 rounded-full filter blur-3xl opacity-30 group-hover:opacity-60 transition-opacity"></div>
               
               <div className="relative z-10">
-                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                  <span className="text-3xl">⚡</span>
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl flex items-center justify-center mb-5 shadow-xl">
+                  <span className="text-4xl">⚡</span>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-purple-900 mb-4">Principes Clés</h3>
+                <h3 className="text-3xl font-extrabold text-purple-900 mb-5">Principes Clés</h3>
                 
-                <ul className="space-y-3 text-sm text-gray-700">
+                <ul className="space-y-4 text-base text-gray-800">
                   <li className="flex items-start gap-3 group/item">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">→</span>
-                    <span className="group-hover/item:text-purple-900 transition-colors">Automatisation maximale</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-700 text-white flex items-center justify-center text-xs font-bold mt-1">→</span>
+                    <span className="group-hover/item:text-purple-900 transition-colors font-medium">Automatisation maximale</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">→</span>
-                    <span className="group-hover/item:text-purple-900 transition-colors">Tests continus</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-700 text-white flex items-center justify-center text-xs font-bold mt-1">→</span>
+                    <span className="group-hover/item:text-purple-900 transition-colors font-medium">Tests continus</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">→</span>
-                    <span className="group-hover/item:text-purple-900 transition-colors">Intégration fréquente</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-700 text-white flex items-center justify-center text-xs font-bold mt-1">→</span>
+                    <span className="group-hover/item:text-purple-900 transition-colors font-medium">Intégration fréquente</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">→</span>
-                    <span className="group-hover/item:text-purple-900 transition-colors">Déploiement rapide et sûr</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-700 text-white flex items-center justify-center text-xs font-bold mt-1">→</span>
+                    <span className="group-hover/item:text-purple-900 transition-colors font-medium">Déploiement rapide et sûr</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">→</span>
-                    <span className="group-hover/item:text-purple-900 transition-colors">Monitoring et observabilité</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-700 text-white flex items-center justify-center text-xs font-bold mt-1">→</span>
+                    <span className="group-hover/item:text-purple-900 transition-colors font-medium">Monitoring et observabilité</span>
                   </li>
                 </ul>
               </div>
             </div>
 
             {/* Workflow Card */}
-            <div className="group relative bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8 border-2 border-teal-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-teal-200 rounded-full filter blur-3xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+            <div className="group relative bg-gradient-to-br from-teal-50 via-teal-100 to-teal-50 rounded-3xl p-10 border-2 border-teal-300 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-3">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-teal-300 rounded-full filter blur-3xl opacity-30 group-hover:opacity-60 transition-opacity"></div>
               
               <div className="relative z-10">
-                <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                  <span className="text-3xl">🔄</span>
+                <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-teal-700 rounded-2xl flex items-center justify-center mb-5 shadow-xl">
+                  <span className="text-4xl">🔄</span>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-teal-900 mb-4">Workflow</h3>
+                <h3 className="text-3xl font-extrabold text-teal-900 mb-5">Workflow</h3>
                 
-                <ul className="space-y-3 text-sm text-gray-700">
+                <ul className="space-y-4 text-base text-gray-800">
                   <li className="flex items-start gap-3 group/item">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-teal-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">1</span>
-                    <span className="group-hover/item:text-teal-900 transition-colors">Commit du code source</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-teal-700 text-white flex items-center justify-center text-xs font-bold mt-1">1</span>
+                    <span className="group-hover/item:text-teal-900 transition-colors font-medium">Commit du code source</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-teal-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">2</span>
-                    <span className="group-hover/item:text-teal-900 transition-colors">Build automatique</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-teal-700 text-white flex items-center justify-center text-xs font-bold mt-1">2</span>
+                    <span className="group-hover/item:text-teal-900 transition-colors font-medium">Build automatique</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-teal-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">3</span>
-                    <span className="group-hover/item:text-teal-900 transition-colors">Tests automatisés</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-teal-700 text-white flex items-center justify-center text-xs font-bold mt-1">3</span>
+                    <span className="group-hover/item:text-teal-900 transition-colors font-medium">Tests automatisés</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-teal-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">4</span>
-                    <span className="group-hover/item:text-teal-900 transition-colors">Scan de sécurité</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-teal-700 text-white flex items-center justify-center text-xs font-bold mt-1">4</span>
+                    <span className="group-hover/item:text-teal-900 transition-colors font-medium">Scan de sécurité</span>
                   </li>
                   <li className="flex items-start gap-3 group/item">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-teal-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">5</span>
-                    <span className="group-hover/item:text-teal-900 transition-colors">Déploiement en production</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-teal-700 text-white flex items-center justify-center text-xs font-bold mt-1">5</span>
+                    <span className="group-hover/item:text-teal-900 transition-colors font-medium">Déploiement en production</span>
                   </li>
                 </ul>
               </div>
@@ -582,34 +582,34 @@ const App: React.FC = () => {
       </section>
 
       {/* Keywords Grid */}
-      <section className="container mx-auto px-4 md:px-6 lg:px-8 py-12">
-        <div className="max-w-7xl mx-auto">
+      <section className="container mx-auto px-6 md:px-10 lg:px-16 xl:px-20 py-16 md:py-20">
+        <div className="max-w-5xl mx-auto">
           {/* Title */}
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <div className="text-center mb-14">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-5">
               🔑 Concepts et Outils Essentiels
             </h2>
-            <p className="text-gray-600 text-lg">
+            <p className="text-gray-700 text-xl font-medium">
               Explorez par catégorie et cliquez pour découvrir les détails
             </p>
           </div>
 
           {/* Category Filters */}
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
             {Object.entries(categories).map(([key, cat]) => (
               <button
                 key={key}
                 onClick={() => setSelectedCategory(key)}
-                className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 flex items-center gap-2 ${
+                className={`px-6 py-3.5 rounded-full font-bold text-base transition-all duration-200 flex items-center gap-2.5 shadow-lg hover:shadow-xl transform hover:scale-105 ${
                   selectedCategory === key
-                    ? `bg-gradient-to-r ${cat.color} text-white shadow-lg`
-                    : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-gray-300'
+                    ? `bg-gradient-to-r ${cat.color} text-white shadow-xl scale-105`
+                    : 'bg-white text-gray-700 border-2 border-gray-300 hover:border-gray-400'
                 }`}
               >
-                <span className="text-lg">{cat.icon}</span>
+                <span className="text-xl">{cat.icon}</span>
                 <span>{cat.label}</span>
                 {selectedCategory === key && (
-                  <span className="bg-white bg-opacity-30 rounded-full px-2 py-0.5 text-xs font-bold">
+                  <span className="bg-white bg-opacity-40 rounded-full px-2.5 py-0.5 text-sm font-extrabold">
                     {filteredKeywords.length}
                   </span>
                 )}
@@ -618,11 +618,11 @@ const App: React.FC = () => {
           </div>
 
           {/* Stats */}
-          <div className="flex justify-center gap-4 mb-10 text-sm text-gray-600">
-            <span className="px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200">
-              <strong className="text-blue-600">{filteredKeywords.length}</strong> Concepts
+          <div className="flex justify-center gap-5 mb-12 text-base text-gray-700">
+            <span className="px-6 py-3 bg-white rounded-full shadow-md border-2 border-gray-200 font-semibold">
+              <strong className="text-blue-700 font-extrabold">{filteredKeywords.length}</strong> Concepts
             </span>
-            <span className="px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200">
+            <span className="px-6 py-3 bg-white rounded-full shadow-md border-2 border-gray-200 font-semibold">
               100% Français
             </span>
           </div>
@@ -637,22 +637,22 @@ const App: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-10 mt-16">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+      <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-14 mt-20 shadow-2xl">
+        <div className="container mx-auto px-6 md:px-10 lg:px-16 xl:px-20">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="text-4xl mb-4">📚</div>
-            <h3 className="text-2xl font-bold mb-3">Documentation CI/CD - 2025</h3>
-            <p className="text-gray-400 mb-6">
+            <div className="text-5xl mb-6">📚</div>
+            <h3 className="text-3xl font-extrabold mb-4">Documentation CI/CD - 2025</h3>
+            <p className="text-gray-300 text-lg mb-8 font-medium">
               Guide complet pour maîtriser l'intégration et le déploiement continus
             </p>
-            <div className="flex flex-wrap justify-center gap-3 mb-6">
-              <span className="px-4 py-2 bg-white bg-opacity-10 rounded-full text-sm">🔄 CI/CD</span>
-              <span className="px-4 py-2 bg-white bg-opacity-10 rounded-full text-sm">🐳 Docker</span>
-              <span className="px-4 py-2 bg-white bg-opacity-10 rounded-full text-sm">☸️ Kubernetes</span>
-              <span className="px-4 py-2 bg-white bg-opacity-10 rounded-full text-sm">🔒 DevSecOps</span>
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
+              <span className="px-5 py-2.5 bg-white bg-opacity-15 backdrop-blur-sm rounded-full text-base font-semibold border border-white border-opacity-20">🔄 CI/CD</span>
+              <span className="px-5 py-2.5 bg-white bg-opacity-15 backdrop-blur-sm rounded-full text-base font-semibold border border-white border-opacity-20">🐳 Docker</span>
+              <span className="px-5 py-2.5 bg-white bg-opacity-15 backdrop-blur-sm rounded-full text-base font-semibold border border-white border-opacity-20">☸️ Kubernetes</span>
+              <span className="px-5 py-2.5 bg-white bg-opacity-15 backdrop-blur-sm rounded-full text-base font-semibold border border-white border-opacity-20">🔒 DevSecOps</span>
             </div>
-            <div className="pt-6 border-t border-gray-700">
-              <p className="text-gray-500 text-sm">
+            <div className="pt-8 border-t border-gray-600">
+              <p className="text-gray-400 text-base">
                 Créé avec ❤️ en utilisant React, TypeScript et Tailwind CSS
               </p>
             </div>
