@@ -388,121 +388,191 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16">
+      <header className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+          <div className="absolute top-0 right-0 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        </div>
+
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-24 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="text-6xl mb-6">📚</div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Documentation CI/CD
+            {/* Icon with Animation */}
+            <div className="inline-block mb-6 transform hover:scale-110 transition-transform duration-300">
+              <div className="w-24 h-24 md:w-32 md:h-32 bg-white bg-opacity-20 backdrop-blur-lg rounded-3xl flex items-center justify-center shadow-2xl">
+                <span className="text-6xl md:text-7xl">📚</span>
+              </div>
+            </div>
+
+            {/* Title */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
+                Documentation CI/CD
+              </span>
+              <span className="block text-2xl md:text-3xl lg:text-4xl font-semibold mt-3 text-blue-100">
+                Complète & Professionnelle
+              </span>
             </h1>
-            <p className="text-lg md:text-xl text-blue-100 mb-6">
-              Guide complet des concepts, outils et pratiques DevOps
+
+            {/* Description */}
+            <p className="text-lg md:text-xl text-blue-50 mb-8 max-w-2xl mx-auto leading-relaxed">
+              Guide complet des concepts, outils et pratiques DevOps pour maîtriser 
+              l'intégration et le déploiement continus
             </p>
+
+            {/* Tags */}
             <div className="flex flex-wrap justify-center gap-3">
-              <span className="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm font-medium">🔄 CI/CD</span>
-              <span className="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm font-medium">🐳 Docker</span>
-              <span className="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm font-medium">☸️ Kubernetes</span>
-              <span className="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm font-medium">🌿 Git Flow</span>
+              <span className="px-5 py-2.5 bg-white bg-opacity-20 backdrop-blur-md rounded-full text-sm font-semibold hover:bg-opacity-30 transition-all duration-300 flex items-center gap-2 shadow-lg">
+                <span className="text-xl">🔄</span>
+                <span>CI/CD</span>
+              </span>
+              <span className="px-5 py-2.5 bg-white bg-opacity-20 backdrop-blur-md rounded-full text-sm font-semibold hover:bg-opacity-30 transition-all duration-300 flex items-center gap-2 shadow-lg">
+                <span className="text-xl">🐳</span>
+                <span>Docker</span>
+              </span>
+              <span className="px-5 py-2.5 bg-white bg-opacity-20 backdrop-blur-md rounded-full text-sm font-semibold hover:bg-opacity-30 transition-all duration-300 flex items-center gap-2 shadow-lg">
+                <span className="text-xl">☸️</span>
+                <span>Kubernetes</span>
+              </span>
+              <span className="px-5 py-2.5 bg-white bg-opacity-20 backdrop-blur-md rounded-full text-sm font-semibold hover:bg-opacity-30 transition-all duration-300 flex items-center gap-2 shadow-lg">
+                <span className="text-xl">🌿</span>
+                <span>Git Flow</span>
+              </span>
             </div>
           </div>
+        </div>
+
+        {/* Wave Divider */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg className="w-full h-16 md:h-20" viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
+            <path d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,58.7C960,64,1056,64,1152,58.7C1248,53,1344,43,1392,37.3L1440,32L1440,120L0,120Z" fill="rgb(249, 250, 251)"/>
+          </svg>
         </div>
       </header>
 
       {/* Introduction */}
-      <section className="container mx-auto px-4 md:px-6 lg:px-8 py-12">
+      <section className="container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                🎯 Qu'est-ce que le CI/CD ?
-              </h2>
-              <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-                Le <strong className="text-blue-600">CI/CD</strong> est une méthodologie moderne qui vise à 
-                <strong className="text-purple-600"> automatiser et optimiser le cycle de développement logiciel</strong>.
-              </p>
+          {/* Title Section */}
+          <div className="text-center mb-12">
+            <div className="inline-block mb-4">
+              <span className="text-5xl md:text-6xl">🎯</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
+              Qu'est-ce que le <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">CI/CD</span> ?
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Le <strong className="text-blue-600">CI/CD</strong> (Continuous Integration / Continuous Deployment) est une méthodologie moderne qui vise à 
+              <strong className="text-purple-600"> automatiser et optimiser le cycle de développement logiciel</strong>.
+            </p>
+          </div>
+          
+          {/* Cards Grid */}
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {/* Avantages Card */}
+            <div className="group relative bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border-2 border-blue-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-200 rounded-full filter blur-3xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+              
+              <div className="relative z-10">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                  <span className="text-3xl">✨</span>
+                </div>
+                
+                <h3 className="text-2xl font-bold text-blue-900 mb-4">Avantages</h3>
+                
+                <ul className="space-y-3 text-sm text-gray-700">
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+                    <span className="group-hover/item:text-blue-900 transition-colors">Détection précoce des bugs</span>
+                  </li>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+                    <span className="group-hover/item:text-blue-900 transition-colors">Déploiements plus fréquents</span>
+                  </li>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+                    <span className="group-hover/item:text-blue-900 transition-colors">Réduction du time-to-market</span>
+                  </li>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+                    <span className="group-hover/item:text-blue-900 transition-colors">Meilleure collaboration</span>
+                  </li>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+                    <span className="group-hover/item:text-blue-900 transition-colors">Feedback rapide et continu</span>
+                  </li>
+                </ul>
+              </div>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* Avantages */}
-              <div className="bg-blue-50 rounded-xl p-6 border-2 border-blue-100">
-                <div className="text-3xl mb-3">✨</div>
-                <h3 className="text-xl font-bold text-blue-900 mb-4">Avantages</h3>
-                <ul className="space-y-3 text-sm text-gray-700">
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">✓</span>
-                    <span>Détection précoce des bugs</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">✓</span>
-                    <span>Déploiements fréquents</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">✓</span>
-                    <span>Réduction du time-to-market</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">✓</span>
-                    <span>Meilleure collaboration</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">✓</span>
-                    <span>Feedback rapide</span>
-                  </li>
-                </ul>
-              </div>
+            {/* Principes Card */}
+            <div className="group relative bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 border-2 border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-200 rounded-full filter blur-3xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
               
-              {/* Principes */}
-              <div className="bg-purple-50 rounded-xl p-6 border-2 border-purple-100">
-                <div className="text-3xl mb-3">⚡</div>
-                <h3 className="text-xl font-bold text-purple-900 mb-4">Principes Clés</h3>
+              <div className="relative z-10">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                  <span className="text-3xl">⚡</span>
+                </div>
+                
+                <h3 className="text-2xl font-bold text-purple-900 mb-4">Principes Clés</h3>
+                
                 <ul className="space-y-3 text-sm text-gray-700">
-                  <li className="flex items-start gap-2">
-                    <span className="text-purple-600 font-bold">→</span>
-                    <span>Automatisation maximale</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">→</span>
+                    <span className="group-hover/item:text-purple-900 transition-colors">Automatisation maximale</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-purple-600 font-bold">→</span>
-                    <span>Tests continus</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">→</span>
+                    <span className="group-hover/item:text-purple-900 transition-colors">Tests continus</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-purple-600 font-bold">→</span>
-                    <span>Intégration fréquente</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">→</span>
+                    <span className="group-hover/item:text-purple-900 transition-colors">Intégration fréquente</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-purple-600 font-bold">→</span>
-                    <span>Déploiement rapide</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">→</span>
+                    <span className="group-hover/item:text-purple-900 transition-colors">Déploiement rapide et sûr</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-purple-600 font-bold">→</span>
-                    <span>Monitoring constant</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">→</span>
+                    <span className="group-hover/item:text-purple-900 transition-colors">Monitoring et observabilité</span>
                   </li>
                 </ul>
               </div>
+            </div>
 
-              {/* Workflow */}
-              <div className="bg-teal-50 rounded-xl p-6 border-2 border-teal-100">
-                <div className="text-3xl mb-3">🔄</div>
-                <h3 className="text-xl font-bold text-teal-900 mb-4">Workflow</h3>
+            {/* Workflow Card */}
+            <div className="group relative bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8 border-2 border-teal-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-teal-200 rounded-full filter blur-3xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+              
+              <div className="relative z-10">
+                <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                  <span className="text-3xl">🔄</span>
+                </div>
+                
+                <h3 className="text-2xl font-bold text-teal-900 mb-4">Workflow</h3>
+                
                 <ul className="space-y-3 text-sm text-gray-700">
-                  <li className="flex items-start gap-2">
-                    <span className="text-teal-600 font-bold">1</span>
-                    <span>Commit du code</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-teal-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">1</span>
+                    <span className="group-hover/item:text-teal-900 transition-colors">Commit du code source</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-teal-600 font-bold">2</span>
-                    <span>Build automatique</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-teal-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">2</span>
+                    <span className="group-hover/item:text-teal-900 transition-colors">Build automatique</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-teal-600 font-bold">3</span>
-                    <span>Tests automatisés</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-teal-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">3</span>
+                    <span className="group-hover/item:text-teal-900 transition-colors">Tests automatisés</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-teal-600 font-bold">4</span>
-                    <span>Scan de sécurité</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-teal-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">4</span>
+                    <span className="group-hover/item:text-teal-900 transition-colors">Scan de sécurité</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-teal-600 font-bold">5</span>
-                    <span>Déploiement</span>
+                  <li className="flex items-start gap-3 group/item">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-teal-600 text-white flex items-center justify-center text-xs font-bold mt-0.5">5</span>
+                    <span className="group-hover/item:text-teal-900 transition-colors">Déploiement en production</span>
                   </li>
                 </ul>
               </div>
