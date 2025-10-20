@@ -458,6 +458,37 @@
   font-weight: 500;
 }
 
+/* Pipeline Examples Specific Styles */
+.pipeline-example {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.03) 100%);
+  border: 2px solid rgba(102, 126, 234, 0.2);
+}
+
+.pipeline-example:hover {
+  border-color: #667eea;
+}
+
+.pipeline-name {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #667eea;
+}
+
+.pipeline-icon {
+  font-size: 1.5rem;
+  animation: rocket 2s ease-in-out infinite;
+}
+
+@keyframes rocket {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .sidebar {

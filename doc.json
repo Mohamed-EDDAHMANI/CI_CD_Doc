@@ -1,119 +1,180 @@
 {
-    "title": "Documentation CI/CD",
+  "title": "Documentation CI/CD",
+  "sections": [
+    {
+      "heading": "1. Introduction au CI/CD",
+      "content": "CI/CD signifie Intégration Continue et Déploiement Continu (ou Livraison Continue)...",
+      "Explication": "En résumé : CI/CD est comme une chaîne de montage automatique pour le code..."
+    },
+    {
+      "heading": "2. Intégration Continue (CI)",
+      "content": "L'Intégration Continue est la pratique...",
+      "Explication": "Pensez-y comme un contrôle de qualité automatique..."
+    },
+    {
+      "heading": "3. Livraison Continue (CD)",
+      "content": "La Livraison Continue garantit que les modifications...",
+      "Explication": "C'est comme avoir un colis Amazon toujours prêt à être expédié..."
+    },
+    {
+      "heading": "4. Déploiement Continu",
+      "content": "Le Déploiement Continu va un pas plus loin...",
+      "Explication": "Le niveau supérieur : non seulement le colis est prêt..."
+    },
+    {
+      "heading": "5. Avantages du CI/CD",
+      "content": "• Cycles de release plus rapides...",
+      "Explication": "En gros : vous livrez plus vite, avec moins d'erreurs..."
+    },
+    {
+      "heading": "6. Concepts Clés",
+      "content": "• Pipeline : Séquence d'étapes automatisées...",
+      "Explication": "Le vocabulaire de base : Pipeline = tuyau..."
+    },
+    {
+      "heading": "7. Outils CI/CD Courants",
+      "content": "• GitHub Actions : Outil CI/CD intégré...",
+      "Explication": "Ce sont les robots qui font le travail pour vous..."
+    },
+    {
+      "heading": "8. Workflow Exemple (Étape par Étape)",
+      "content": "1. Le développeur pousse le code...",
+      "Explication": "Le parcours de votre code : vous l'envoyez..."
+    },
+    {
+      "heading": "9. Exemple de Pipeline CI/CD (YAML - GitHub Actions)",
+      "content": "```yaml\nname: CI/CD Pipeline\non:\n  push:\n    branches: [ main, develop ]\n  pull_request:\n    branches: [ main ]\n...```",
+      "Explication": "C'est la recette de cuisine pour GitHub Actions...",
+      "ExplicationDetaillee": {
+        "Résumé": "Le pipeline est divisé en quatre étapes principales..."
+      }
+    },
+    {
+      "heading": "10. Bonnes Pratiques",
+      "content": "• Maintenir des builds rapides...",
+      "Explication": "Les règles d'or : gardez votre pipeline rapide..."
+    },
+    {
+      "heading": "11. CI/CD dans la Culture DevOps",
+      "content": "Le CI/CD est une pratique fondamentale de DevOps...",
+      "Explication": "DevOps, c'est faire travailler les développeurs..."
+    },
+    {
+      "heading": "12. Exemple Réel",
+      "content": "Dans un projet React + Node.js, vous pouvez configurer...",
+      "Explication": "Scénario concret : vous codez une app web React..."
+    },
+    {
+      "heading": "13. Métriques et Surveillance",
+      "content": "Pour mesurer l'efficacité de votre pipeline CI/CD...",
+      "Explication": "Comment savoir si votre CI/CD fonctionne bien ?..."
+    },
+    {
+      "heading": "14. Défis et Solutions",
+      "content": "Défis courants et comment les résoudre...",
+      "Explication": "Les problèmes fréquents : des tests qui marchent parfois..."
+    },
+    {
+      "heading": "15. Conclusion",
+      "content": "Le CI/CD ne se limite pas à l'automatisation...",
+      "Explication": "Le message final : CI/CD n'est pas juste des outils..."
+    },
+    {
+      "heading": "16. Différences entre CI/CD dans GitHub Actions et GitLab CI",
+      "content": "GitHub Actions et GitLab CI sont deux plateformes populaires pour l’automatisation CI/CD. Bien qu’elles poursuivent le même objectif, leurs approches et intégrations diffèrent :\n\n**1️⃣ Intégration et Hébergement :**\n- GitHub Actions est intégré nativement à GitHub, idéal pour les projets hébergés sur GitHub.\n- GitLab CI est intégré à GitLab, avec des fonctionnalités DevOps complètes (CI/CD, gestion des issues, conteneurs, monitoring, etc.).\n\n**2️⃣ Configuration :**\n- GitHub Actions utilise le fichier `.github/workflows/*.yml`.\n- GitLab CI utilise `.gitlab-ci.yml` à la racine du dépôt.\n\n**3️⃣ Runners :**\n- GitHub propose des *runners* hébergés (Ubuntu, Windows, macOS) et personnalisés.\n- GitLab permet d’enregistrer ses propres *runners* (self-hosted) très facilement, souvent utilisé dans les entreprises.\n\n**4️⃣ Sécurité et Permissions :**\n- GitHub gère les secrets via *GitHub Secrets*.\n- GitLab a un système plus avancé avec *Variables de CI/CD* et gestion des environnements.\n\n**5️⃣ Visualisation et Monitoring :**\n- GitLab CI offre une visualisation claire du pipeline avec des stages et des jobs.\n- GitHub Actions affiche les workflows dans l’onglet *Actions*, mais la vue pipeline est plus simple.\n\n**6️⃣ Coût et Ressources :**\n- GitHub offre un certain nombre de minutes gratuites, puis payantes.\n- GitLab Community Edition est gratuit et auto-hébergeable, ce qui séduit les équipes internes.\n\n**Conclusion :**\n- GitHub Actions → idéal pour projets open-source ou hébergés sur GitHub.\n- GitLab CI → plus complet pour entreprises avec infrastructure privée et pipelines complexes.",
+      "Explication": "GitHub Actions est plus simple et intégré à GitHub, GitLab CI est plus complet et personnalisable. Si GitHub Actions est une voiture automatique, GitLab CI est une voiture manuelle : plus de contrôle, mais plus de configuration."
+    }
+  ],
+
+  "docker": {
+    "title": "Docker",
     "sections": [
-        {
-            "heading": "1. Introduction au CI/CD",
-            "content": "CI/CD signifie Intégration Continue et Déploiement Continu (ou Livraison Continue). C'est un ensemble de pratiques qui permet aux équipes de développement de livrer les modifications de code plus fréquemment et de manière plus fiable grâce à l'automatisation.\n\nLe CI/CD représente un changement fondamental dans la façon dont le logiciel est développé et livré. Il élimine les processus manuels sujets aux erreurs et permet aux équipes de se concentrer sur la création de valeur plutôt que sur les tâches opérationnelles répétitives.",
-            "Explication": "En résumé : CI/CD est comme une chaîne de montage automatique pour le code. Au lieu de faire tout manuellement (tester, compiler, déployer), des robots logiciels le font automatiquement et rapidement, réduisant les erreurs humaines."
-        },
-        {
-            "heading": "2. Intégration Continue (CI)",
-            "content": "L'Intégration Continue est la pratique qui consiste à fusionner plusieurs fois par jour les copies de travail de tous les développeurs vers une branche principale partagée. L'objectif est de détecter précocement les problèmes d'intégration. Chaque intégration déclenche un processus automatisé de construction et de test pour garantir que le code reste fonctionnel.\n\nAvantages de la CI :\n• Détection immédiate des conflits d'intégration\n• Réduction du temps de débogage\n• Code toujours prêt pour le déploiement\n• Meilleure collaboration entre développeurs",
-            "Explication": "Pensez-y comme un contrôle de qualité automatique : chaque fois qu'un développeur ajoute du code, le système vérifie automatiquement si tout fonctionne encore correctement, comme un professeur qui corrige instantanément vos devoirs."
-        },
-        {
-            "heading": "3. Livraison Continue (CD)",
-            "content": "La Livraison Continue garantit que les modifications de code sont automatiquement préparées pour la mise en production. Elle implique des pipelines de test et de déploiement automatisés afin que le logiciel puisse être déployé à tout moment de manière sûre et efficace. Le code est toujours dans un état déployable.\n\nCaractéristiques principales :\n• Préparation automatique des releases\n• Validation multiple avant déploiement\n• Possibilité de déployer manuellement à tout moment\n• Réduction du stress lié aux déploiements",
-            "Explication": "C'est comme avoir un colis Amazon toujours prêt à être expédié : le produit est emballé, étiqueté et prêt, il suffit d'appuyer sur le bouton 'Envoyer' quand vous le souhaitez."
-        },
-        {
-            "heading": "4. Déploiement Continu",
-            "content": "Le Déploiement Continu va un pas plus loin que la Livraison Continue. Chaque modification qui passe les tests automatisés est automatiquement déployée en production, sans approbation manuelle. Cette approche accélère les retours et améliore la qualité du produit grâce à une itération rapide.\n\nDifférences clés avec la Livraison Continue :\n• Aucune intervention humaine nécessaire\n• Déploiement immédiat après validation\n• Idéal pour les environnements nécessitant des mises à jour fréquentes\n• Nécessite une grande confiance dans les tests automatisés",
-            "Explication": "Le niveau supérieur : non seulement le colis est prêt, mais il s'envoie automatiquement dès qu'il passe les contrôles de qualité, sans que personne n'ait à appuyer sur un bouton. Comme Netflix qui met à jour son site sans que vous le remarquiez."
-        },
-        {
-            "heading": "5. Avantages du CI/CD",
-            "content": "• Cycles de release plus rapides\n• Détection précoce des bugs\n• Amélioration de la qualité logicielle\n• Réduction de l'intervention manuelle\n• Environnements cohérents grâce à l'automatisation\n• Meilleure collaboration entre développement et opérations (DevOps)\n• Réduction des coûts de développement\n• Augmentation de la satisfaction des clients\n• Capacité à livrer des fonctionnalités plus rapidement",
-            "Explication": "En gros : vous livrez plus vite, avec moins d'erreurs, et vos clients sont plus heureux. C'est comme passer d'une voiture manuelle à une voiture automatique avec GPS et aide au stationnement."
-        },
-        {
-            "heading": "6. Concepts Clés",
-            "content": "• Pipeline : Séquence d'étapes automatisées (construction, test, déploiement)\n• Build : Compilation du code source en forme exécutable\n• Test : Exécution de tests automatisés pour vérifier la correction\n• Déploiement : Publication de l'application sur un serveur ou environnement de production\n• Rollback : Retour à une version stable précédente en cas d'échec de déploiement\n• Artifact : Fichier ou package produit par le processus de build\n• Environment : Configuration spécifique (développement, staging, production)",
-            "Explication": "Le vocabulaire de base : Pipeline = tuyau qui fait passer votre code par différentes étapes, Build = transformer votre code en application, Test = vérifier que tout marche, Rollback = bouton 'annuler' si quelque chose ne va pas."
-        },
-        {
-            "heading": "7. Outils CI/CD Courants",
-            "content": "• GitHub Actions : Outil CI/CD intégré aux dépôts GitHub\n• GitLab CI : Intégré aux dépôts GitLab, facile à configurer avec des fichiers YAML\n• Jenkins : Serveur d'automatisation open-source pour construire, tester et déployer\n• CircleCI : Plateforme CI/CD cloud avec des performances rapides\n• Travis CI : Service CI populaire pour les projets open-source\n• Azure DevOps, AWS CodePipeline, Bitbucket Pipelines\n• Drone CI, TeamCity, Bamboo",
-            "Explication": "Ce sont les robots qui font le travail pour vous. GitHub Actions est le plus populaire car il est déjà intégré dans GitHub (là où vous stockez votre code). Choisissez celui qui correspond à votre plateforme de code."
-        },
-        {
-            "heading": "8. Workflow Exemple (Étape par Étape)",
-            "content": "1. Le développeur pousse le code vers le dépôt GitHub\n2. Le serveur CI détecte le changement et déclenche un pipeline\n3. L'application est construite et les dépendances sont installées\n4. Les tests unitaires et d'intégration automatisés sont exécutés\n5. Si les tests réussissent, l'application est déployée dans un environnement de staging\n6. Des tests supplémentaires peuvent être effectués en staging\n7. Après validation, le code est déployé automatiquement ou manuellement en production\n8. Surveillance et métriques post-déploiement",
-            "Explication": "Le parcours de votre code : vous l'envoyez → il est vérifié automatiquement → testé sur un environnement de test → puis mis en production si tout est OK. Comme un parcours du combattant où chaque obstacle vérifie que votre code est solide."
-        },
-        {
-            "heading": "9. Exemple de Pipeline CI/CD (YAML - GitHub Actions)",
-            "content": "```yaml\nname: CI/CD Pipeline\non:\n  push:\n    branches: [ main, develop ]\n  pull_request:\n    branches: [ main ]\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout du code\n        uses: actions/checkout@v3\n\n      - name: Configuration de Node.js\n        uses: actions/setup-node@v3\n        with:\n          node-version: '18'\n          cache: 'npm'\n\n      - name: Installation des dépendances\n        run: npm ci\n\n      - name: Exécution des tests\n        run: npm test\n\n      - name: Génération du rapport de couverture\n        run: npm run test:coverage\n\n  build:\n    runs-on: ubuntu-latest\n    needs: test\n    steps:\n      - name: Checkout du code\n        uses: actions/checkout@v3\n\n      - name: Construction du projet\n        run: npm run build\n\n      - name: Upload des artifacts\n        uses: actions/upload-artifact@v3\n        with:\n          name: build-artifacts\n          path: build/\n\n  deploy-staging:\n    runs-on: ubuntu-latest\n    needs: build\n    environment: staging\n    steps:\n      - name: Déploiement en staging\n        run: npm run deploy:staging\n        env:\n          DEPLOY_TOKEN: ${{ secrets.STAGING_DEPLOY_TOKEN }}\n\n  deploy-production:\n    runs-on: ubuntu-latest\n    needs: deploy-staging\n    if: github.ref == 'refs/heads/main'\n    environment: production\n    steps:\n      - name: Approbation de déploiement\n        uses: trstringer/manual-approval@v1\n        with:\n          secret: ${{ github.token }}\n          approvers: admin-team\n\n      - name: Déploiement en production\n        run: npm run deploy:production\n        env:\n          DEPLOY_TOKEN: ${{ secrets.PRODUCTION_DEPLOY_TOKEN }}\n```",
-            "Explication": "C'est la recette de cuisine pour GitHub Actions : ce fichier YAML dit exactement quoi faire, dans quel ordre, et quand. Chaque 'job' est une tâche (tester, construire, déployer) qui s'exécute automatiquement.",
-            "ExplicationDetaillee": {
-                "name": "Nom du workflow. Ici 'CI/CD Pipeline', visible dans l'interface GitHub Actions.",
-                "on": "Définit quand le pipeline doit se lancer. Ici, à chaque push sur les branches 'main' ou 'develop', et à chaque pull request vers 'main'.",
-                "jobs": {
-                    "test": {
-                        "runs-on": "Indique le système sur lequel s’exécute le job. 'ubuntu-latest' = une machine Linux prête à l’emploi.",
-                        "steps": [
-                            "1️⃣ Checkout du code → Télécharge le code source du dépôt pour l’utiliser.",
-                            "2️⃣ Setup Node.js → Installe Node.js version 18 et active la mise en cache npm pour accélérer les builds.",
-                            "3️⃣ Installation des dépendances → npm ci installe les packages à partir de package-lock.json.",
-                            "4️⃣ Exécution des tests → Lance les tests unitaires pour s'assurer que le code fonctionne.",
-                            "5️⃣ Génération du rapport de couverture → Crée un rapport sur le pourcentage de code testé."
-                        ]
-                    },
-                    "build": {
-                        "needs": "Ce job dépend du job 'test'. Il ne s'exécute que si les tests réussissent.",
-                        "steps": [
-                            "1️⃣ Checkout du code → Récupère à nouveau le code pour le build.",
-                            "2️⃣ Construction du projet → Compile ou build le projet (npm run build).",
-                            "3️⃣ Upload des artifacts → Sauvegarde les fichiers buildés (le dossier build/) comme artifacts pour les étapes suivantes."
-                        ]
-                    },
-                    "deploy-staging": {
-                        "environment": "Déploie le projet sur un environnement de staging (préproduction) pour le tester avant la mise en production.",
-                        "steps": [
-                            "1️⃣ Déploiement en staging → Exécute la commande npm run deploy:staging.",
-                            "2️⃣ Utilise une clé secrète (STAGING_DEPLOY_TOKEN) stockée dans GitHub Secrets pour sécuriser le déploiement."
-                        ]
-                    },
-                    "deploy-production": {
-                        "condition": "Ce job ne s’exécute que si la branche est 'main'.",
-                        "steps": [
-                            "1️⃣ Approbation manuelle → Demande une validation d’un membre de l’équipe (admin-team) avant de lancer le déploiement.",
-                            "2️⃣ Déploiement en production → Lance npm run deploy:production avec un token sécurisé (PRODUCTION_DEPLOY_TOKEN)."
-                        ]
-                    }
-                },
-                "Résumé": "Le pipeline est divisé en quatre étapes principales : Tests → Build → Staging → Production. Chaque étape dépend de la réussite de la précédente. Cela garantit que seul du code testé et validé atteint la production."
-            }
-        },
-        {
-            "heading": "10. Bonnes Pratiques",
-            "content": "• Maintenir des builds rapides et légers\n• Exécuter les tests en parallèle quand c'est possible\n• Utiliser des variables d'environnement pour les données sensibles\n• Maintenir des environnements séparés : développement, staging, production\n• Implémenter des stratégies de rollback\n• Assurer une couverture de tests complète avant le déploiement\n• Versionner la configuration d'infrastructure\n• Surveiller les performances du pipeline\n• Documenter les processus et procédures",
-            "Explication": "Les règles d'or : gardez votre pipeline rapide (personne n'aime attendre), testez beaucoup, gardez vos mots de passe secrets, et ayez toujours un plan B si quelque chose plante. C'est du bon sens appliqué au code."
-        },
-        {
-            "heading": "11. CI/CD dans la Culture DevOps",
-            "content": "Le CI/CD est une pratique fondamentale de DevOps. Il comble le fossé entre les développeurs (qui écrivent le code) et les opérations (qui déploient et maintiennent les systèmes) en automatisant les workflows et en augmentant la collaboration. Il favorise l'amélioration continue et l'agilité.\n\nPrincipes DevOps renforcés par le CI/CD :\n• Collaboration inter-équipes\n• Automatisation des processus\n• Mesure et métriques continues\n• Partage des responsabilités\n• Culture d'apprentissage continu",
-            "Explication": "DevOps, c'est faire travailler les développeurs et les responsables serveurs ensemble au lieu de les laisser se disputer. CI/CD est l'outil qui rend cette collaboration facile et automatique, comme un traducteur entre deux personnes."
-        },
-        {
-            "heading": "12. Exemple Réel",
-            "content": "Dans un projet React + Node.js, vous pouvez configurer GitHub Actions pour automatiquement :\n1. Installer les dépendances avec npm ci\n2. Exécuter les tests avec Jest et générer des rapports de couverture\n3. Construire l'application React avec webpack\n4. Exécuter un audit de sécurité avec npm audit\n5. Déployer le frontend sur Vercel et le backend sur Render ou AWS\n6. Exécuter des tests end-to-end avec Cypress après déploiement\n7. Notifier l'équipe via Slack ou email du statut du déploiement\n\nCe processus garantit que votre application est toujours à jour et testée après chaque commit.",
-            "Explication": "Scénario concret : vous codez une app web React, vous envoyez votre code sur GitHub, et hop ! GitHub Actions teste tout, compile, vérifie la sécurité, et met en ligne automatiquement. Vous recevez même un message Slack pour dire si ça a marché."
-        },
-        {
-            "heading": "13. Métriques et Surveillance",
-            "content": "Pour mesurer l'efficacité de votre pipeline CI/CD :\n• Lead Time : Temps entre le commit et le déploiement\n• Deployment Frequency : Fréquence des déploiements\n• Change Failure Rate : Pourcentage de déploiements causant des incidents\n• Mean Time to Recovery : Temps moyen pour corriger un incident\n• Build Duration : Temps d'exécution du pipeline\n• Test Coverage : Pourcentage de code couvert par les tests\n• Success Rate : Pourcentage de builds réussis",
-            "Explication": "Comment savoir si votre CI/CD fonctionne bien ? Mesurez ! Combien de temps ça prend ? Combien de fois ça plante ? Combien de code est testé ? C'est comme vérifier votre vitesse et consommation d'essence en conduisant."
-        },
-        {
-            "heading": "14. Défis et Solutions",
-            "content": "Défis courants et comment les résoudre :\n• Tests flaky : Implémenter des tests stables et rejouables\n• Builds lents : Paralléliser les tâches et utiliser le caching\n• Sécurité : Scanner les dépendances et les images Docker\n• Coûts : Optimiser l'utilisation des ressources\n• Complexité : Commencer simple et itérer\n• Résistance au changement : Former et impliquer l'équipe",
-            "Explication": "Les problèmes fréquents : des tests qui marchent parfois mais pas toujours (frustrant !), des pipelines trop lents (impatience !), des coûts qui explosent. Solution : commencez petit et simple, puis améliorez progressivement. Rome ne s'est pas construite en un jour."
-        },
-        {
-            "heading": "15. Conclusion",
-            "content": "Le CI/CD ne se limite pas à l'automatisation, mais représente la création d'une culture de développement qui valorise la vitesse, la qualité et la fiabilité. En implémentant des pipelines CI/CD, les équipes peuvent livrer un meilleur logiciel plus rapidement et avec plus de confiance.\n\nLe succès du CI/CD dépend de l'adoption par toute l'équipe et de l'engagement envers l'amélioration continue. Commencez petit, mesurez les résultats, et étendez progressivement votre automatisation.",
-            "Explication": "Le message final : CI/CD n'est pas juste des outils techniques, c'est un changement de mentalité. Automatisez intelligemment, livrez régulièrement, apprenez de vos erreurs. C'est la clé du développement moderne réussi."
-        }
+      {
+        "heading": "1. Introduction à Docker",
+        "content": "Docker est une plateforme de conteneurisation qui permet d’exécuter des applications dans des environnements isolés appelés *conteneurs*. Chaque conteneur contient tout ce dont une application a besoin (code, dépendances, bibliothèques, configurations).",
+        "Explication": "Docker, c’est comme une boîte dans laquelle vous mettez votre application et tout ce qu’elle utilise, afin qu’elle fonctionne exactement de la même façon sur tous les ordinateurs."
+      },
+      {
+        "heading": "2. Pourquoi Docker ?",
+        "content": "• Supprime le problème du 'ça marche chez moi'\n• Standardise les environnements de développement\n• Permet le déploiement rapide et portable\n• Facilite la mise à l’échelle (scalabilité)\n• Intégration simple avec CI/CD",
+        "Explication": "Avec Docker, votre code fonctionne partout, sans surprise. Finies les différences entre vos machines et les serveurs."
+      },
+      {
+        "heading": "3. Concepts de Base",
+        "content": "• **Image** : modèle immuable servant à créer un conteneur\n• **Conteneur** : instance exécutable d’une image\n• **Dockerfile** : fichier décrivant comment construire une image\n• **Docker Hub** : registre public d’images Docker\n• **Volume** : stockage persistant pour les données\n• **Network** : permet la communication entre conteneurs",
+        "Explication": "Pensez à une image comme une recette, et au conteneur comme le plat préparé. Le Dockerfile est la fiche recette écrite par le chef."
+      },
+      {
+        "heading": "4. Workflow Docker Typique",
+        "content": "1️⃣ Écrire un Dockerfile\n2️⃣ Construire une image avec `docker build`\n3️⃣ Lancer un conteneur avec `docker run`\n4️⃣ Gérer les conteneurs avec `docker ps`, `docker stop`, `docker rm`\n5️⃣ Pousser l’image sur Docker Hub avec `docker push`\n6️⃣ Déployer via CI/CD ou Kubernetes",
+        "Explication": "C’est comme construire, tester et envoyer votre application dans une boîte prête à l’emploi."
+      },
+      {
+        "heading": "5. Exemple de Dockerfile pour une App React + Node.js",
+        "content": "```Dockerfile\n# Étape 1 : Build du frontend\nFROM node:18 AS build\nWORKDIR /app\nCOPY frontend/ ./frontend\nRUN cd frontend && npm install && npm run build\n\n# Étape 2 : Backend\nFROM node:18\nWORKDIR /app\nCOPY backend/ ./backend\nCOPY --from=build /app/frontend/build ./backend/public\nRUN cd backend && npm install\nCMD [\"node\", \"backend/server.js\"]\n```",
+        "Explication": "Ce Dockerfile construit d’abord le frontend, puis copie les fichiers compilés dans le backend avant de lancer le serveur."
+      },
+      {
+        "heading": "6. Avantages",
+        "content": "• Portabilité\n• Isolation\n• Légèreté\n• Rapidité de déploiement\n• Compatibilité avec Kubernetes et CI/CD",
+        "Explication": "Docker rend vos applications indépendantes du système sur lequel elles tournent, et c’est exactement ce que veulent les équipes modernes."
+      }
     ]
+  },
+
+  "kubernetes": {
+    "title": "Kubernetes",
+    "sections": [
+      {
+        "heading": "1. Introduction à Kubernetes",
+        "content": "Kubernetes (souvent abrégé K8s) est un système open-source d’orchestration de conteneurs. Il automatise le déploiement, la mise à l’échelle et la gestion des applications conteneurisées.",
+        "Explication": "Kubernetes, c’est comme un chef d’orchestre qui gère des dizaines de conteneurs Docker et s’assure qu’ils travaillent ensemble sans problème."
+      },
+      {
+        "heading": "2. Pourquoi utiliser Kubernetes ?",
+        "content": "• Automatisation du déploiement et du scaling\n• Haute disponibilité\n• Auto-réparation des conteneurs\n• Gestion des ressources\n• Intégration native avec Docker et CI/CD",
+        "Explication": "Kubernetes surveille vos conteneurs : s’ils plantent, il les relance tout seul. Si la charge augmente, il ajoute de nouvelles copies automatiquement."
+      },
+      {
+        "heading": "3. Concepts Clés",
+        "content": "• **Pod** : plus petite unité, contient un ou plusieurs conteneurs\n• **Node** : machine (physique ou virtuelle) exécutant les Pods\n• **Cluster** : ensemble de Nodes gérés par Kubernetes\n• **Deployment** : décrit comment déployer et mettre à jour des Pods\n• **Service** : expose une application (accès réseau)\n• **Ingress** : gère les routes HTTP/HTTPS\n• **ConfigMap & Secret** : configuration et données sensibles\n• **Namespace** : isolation logique au sein d’un cluster",
+        "Explication": "Un Pod, c’est une boîte Docker ; un Cluster, c’est un ensemble de boîtes bien organisées."
+      },
+      {
+        "heading": "4. Exemple de Fichier Deployment",
+        "content": "```yaml\napiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: react-app\nspec:\n  replicas: 3\n  selector:\n    matchLabels:\n      app: react-app\n  template:\n    metadata:\n      labels:\n        app: react-app\n    spec:\n      containers:\n      - name: react-container\n        image: mohamed/react-app:latest\n        ports:\n        - containerPort: 80\n```",
+        "Explication": "Ce fichier déploie 3 copies (réplicas) de votre application React. Si une tombe, Kubernetes en crée une nouvelle."
+      },
+      {
+        "heading": "5. Intégration Docker + Kubernetes",
+        "content": "Docker construit les conteneurs, Kubernetes les gère. On peut dire que Docker crée les 'briques', et Kubernetes construit le 'bâtiment' avec ces briques.\n\nWorkflow typique :\n1️⃣ Docker build → création des images\n2️⃣ Push vers Docker Hub\n3️⃣ Kubernetes les déploie via un fichier YAML",
+        "Explication": "Docker = un conteneur. Kubernetes = un gestionnaire de conteneurs. Ensemble, ils forment une architecture moderne, scalable et résiliente."
+      },
+      {
+        "heading": "6. Avantages",
+        "content": "• Scalabilité automatique\n• Résilience et tolérance aux pannes\n• Portabilité multi-cloud\n• Intégration native avec CI/CD\n• Déploiement progressif (rolling updates)",
+        "Explication": "Kubernetes vous aide à dormir tranquille : si un serveur tombe, tout continue à tourner sans interruption."
+      }
+    ]
+  },
+  "pipelinesExamples": {
+    "title": "Exemples de Pipelines CI/CD",
+    "examples": [
+      {
+        "name": "Pipeline React + Node.js (GitHub Actions)",
+        "content": "```yaml\nname: React + Node CI/CD\non:\n  push:\n    branches: [ main ]\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      - name: Setup Node\n        uses: actions/setup-node@v3\n        with:\n          node-version: 18\n      - name: Install dependencies\n        run: npm install --legacy-peer-deps\n      - name: Run tests\n        run: npm test\n      - name: Build project\n        run: npm run build\n      - name: Deploy to Vercel\n        run: npx vercel --prod --token=${{ secrets.VERCEL_TOKEN }}\n```",
+        "Explication": "Pipeline simple qui build, teste et déploie automatiquement sur Vercel."
+      },
+      {
+        "name": "Pipeline Docker + GitHub Actions",
+        "content": "```yaml\nname: Build & Push Docker Image\non:\n  push:\n    branches: [ main ]\n\njobs:\n  docker:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      - name: Build Docker image\n        run: docker build -t mohamed/app:latest .\n      - name: Login to Docker Hub\n        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin\n      - name: Push image\n        run: docker push mohamed/app:latest\n```",
+        "Explication": "Ce pipeline construit et pousse automatiquement une image Docker sur Docker Hub."
+      },
+      {
+        "name": "Pipeline GitLab CI pour Node.js",
+        "content": "```yaml\nstages:\n  - install\n  - test\n  - deploy\n\ninstall:\n  stage: install\n  script:\n    - npm install\n\ntest:\n  stage: test\n  script:\n    - npm test\n\ndeploy:\n  stage: deploy\n  script:\n    - npm run deploy\n  only:\n    - main\n```",
+        "Explication": "Pipeline GitLab simple avec trois étapes : installation, test et déploiement."
+      }
+    ]
+  }
 }
