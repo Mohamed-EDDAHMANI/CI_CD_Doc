@@ -61,6 +61,16 @@ const typedDocData = docData as FullDocData;
 function App() {
   const [currentView, setCurrentView] = useState<'home' | 'docs' | 'docker' | 'kubernetes' | 'pipelines'>('home');
 
+  // Function to scroll to top and change view
+  const handleViewChange = (view: 'home' | 'docs' | 'docker' | 'kubernetes' | 'pipelines') => {
+    setCurrentView(view);
+    // Scroll to top of the main content
+    const mainContent = document.querySelector('.main-content');
+    if (mainContent) {
+      mainContent.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   // Function to render sections
   const renderSections = (sections: Section[]) => {
     return sections.map((section, index) => {
@@ -279,35 +289,35 @@ function App() {
         <nav className="sidebar-nav">
           <button
             className={`nav-item ${currentView === 'home' ? 'active' : ''}`}
-            onClick={() => setCurrentView('home')}
+            onClick={() => handleViewChange('home')}
           >
             <span className="icon">🏠</span>
             Home
           </button>
           <button
             className={`nav-item ${currentView === 'docs' ? 'active' : ''}`}
-            onClick={() => setCurrentView('docs')}
+            onClick={() => handleViewChange('docs')}
           >
             <span className="icon">📚</span>
             CI/CD Documentation
           </button>
           <button
             className={`nav-item ${currentView === 'docker' ? 'active' : ''}`}
-            onClick={() => setCurrentView('docker')}
+            onClick={() => handleViewChange('docker')}
           >
             <span className="icon">🐳</span>
             Docker
           </button>
           <button
             className={`nav-item ${currentView === 'kubernetes' ? 'active' : ''}`}
-            onClick={() => setCurrentView('kubernetes')}
+            onClick={() => handleViewChange('kubernetes')}
           >
             <span className="icon">☸️</span>
             Kubernetes
           </button>
           <button
             className={`nav-item ${currentView === 'pipelines' ? 'active' : ''}`}
-            onClick={() => setCurrentView('pipelines')}
+            onClick={() => handleViewChange('pipelines')}
           >
             <span className="icon">⚙️</span>
             Pipeline Examples
@@ -341,7 +351,7 @@ function App() {
               </div>
               <button
                 className="cta-button"
-                onClick={() => setCurrentView('docs')}
+                onClick={() => handleViewChange('docs')}
               >
                 Start Learning →
               </button>
@@ -434,6 +444,16 @@ function App() {
             </div>
           </div>
         ) : null}
+
+        {/* Footer */}
+        <footer className="app-footer">
+          <div className="footer-content">
+            <p className="footer-text">
+              Made with ❤️ by <span className="author-name">EDDAHMANI Mohamed</span>
+            </p>
+            <p className="footer-year">© {new Date().getFullYear()} - All rights reserved</p>
+          </div>
+        </footer>
       </main>
     </div>
   );
