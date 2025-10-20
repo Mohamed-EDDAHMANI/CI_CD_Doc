@@ -1,0 +1,19 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad7" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#grad7)"/>
+  <text x="400" y="70" font-family="Arial, sans-serif" font-size="36" fill="white" text-anchor="middle" font-weight="bold">DevOps Culture</text>
+  
+  <circle cx="300" cy="200" r="70" fill="white" opacity="0.9"/>
+  <circle cx="500" cy="200" r="70" fill="white" opacity="0.9"/>
+  
+  <text x="300" y="210" font-family="Arial, sans-serif" font-size="24" fill="#f5576c" text-anchor="middle" font-weight="bold">Dev</text>
+  <text x="500" y="210" font-family="Arial, sans-serif" font-size="24" fill="#f5576c" text-anchor="middle" font-weight="bold">Ops</text>
+  
+  <path d="M 370 200 L 430 200" stroke="white" stroke-width="4" fill="none"/>
+  <text x="400" y="310" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle">Collaboration &amp; Automation</text>
+</svg>

@@ -6,6 +6,7 @@ interface Section {
   heading: string;
   content: string;
   Explication: string;
+  image?: string;
   ExplicationDetaillee?: {
     name?: string;
     on?: string;
@@ -29,11 +30,6 @@ interface Section {
     };
     Résumé?: string;
   };
-}
-
-interface DocData {
-  title: string;
-  sections: Section[];
 }
 
 interface TechSection {
@@ -122,6 +118,21 @@ function App() {
       return (
         <section key={index} className="doc-section">
           <h2 className="section-heading">{section.heading}</h2>
+          {section.image && (
+            <div className="section-image-container">
+              <img 
+                src={section.image} 
+                alt={section.heading}
+                className="section-image"
+                loading="lazy"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  console.error('Failed to load image:', section.image);
+                }}
+              />
+            </div>
+          )}
           <div className="section-content">
             {contentElements}
           </div>
